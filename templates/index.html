@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Network Anomaly Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <h2>🛡️ NetGuard AI</h2>
+        <p>Security Monitoring</p>
+        <hr>
+        <a href="#overview">Dashboard</a>
+        <a href="#traffic">Network Traffic</a>
+        <a href="#alerts">Security Alerts</a>
+        <div class="sidebar-bottom">
+            <span class="online-dot"></span> System Active
+        </div>
+    </aside>
+
+    <main class="main">
+        <header>
+            <div>
+                <h1>Intelligent Network Anomaly Detection</h1>
+                <p>AI-Powered Network Security Dashboard</p>
+            </div>
+            <button onclick="loadData()">↻ Refresh Data</button>
+        </header>
+
+        <section id="overview">
+            <div class="cards">
+                <div class="card">
+                    <p>Total Network Records</p>
+                    <h2 id="total">0</h2>
+                    <span>Analyzed Traffic</span>
+                </div>
+
+                <div class="card">
+                    <p>Normal Traffic</p>
+                    <h2 id="normal" class="green">0</h2>
+                    <span>Safe Records</span>
+                </div>
+
+                <div class="card">
+                    <p>Detected Anomalies</p>
+                    <h2 id="anomalies" class="red">0</h2>
+                    <span>Suspicious Records</span>
+                </div>
+
+                <div class="card">
+                    <p>Anomaly Percentage</p>
+                    <h2 id="percentage" class="yellow">0%</h2>
+                    <span>Detection Rate</span>
+                </div>
+            </div>
+
+            <div class="charts">
+                <div class="panel">
+                    <h3>Network Traffic Analysis</h3>
+                    <canvas id="trafficChart"></canvas>
+                </div>
+
+                <div class="panel">
+                    <h3>Traffic Distribution</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="alerts" class="panel">
+            <h3>⚠️ Security Alerts</h3>
+            <p class="description">
+                Network activities identified as unusual by AI.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>IP Address</th>
+                            <th>Packets</th>
+                            <th>Bytes</th>
+                            <th>Status</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alertTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="traffic" class="panel">
+            <h3>Network Traffic Records</h3>
+            <p class="description">
+                Latest simulated network traffic analysis.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>IP Address</th>
+                            <th>Packets</th>
+                            <th>Bytes</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trafficTable"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p id="updated">Waiting for network data...</p>
+            <p>NetGuard AI | Mini Project</p>
+        </footer>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
